@@ -1,0 +1,24 @@
+<h1> <%= @cat.name %> </h1>
+
+<table>
+  <tr>
+    <th>color</th>
+    <th>age   </th>
+    <th>sex</th>
+
+  </tr>
+  <tr>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.age %></td>
+    <td> <%= @cat.sex %></td>
+  </tr>
+</table>
+<h2> Description</h2>
+<%= @cat.description %><br>
+
+<a href="<%=edit_cat_url(@cat)%>">Edit Cat</a>
+
+<form action="<%=cat_url(@cat)%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Destroy this cat">
+</form>
