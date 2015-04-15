@@ -5,11 +5,14 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find(params[:id])
-    @approved_requests = @cat.cat_rental_requests.where("status = 'APPROVED'").order('start_date')
-    @pending_requests = @cat.cat_rental_requests.where("status = 'PENDING'").order('start_date')
-    render :show
-
+    if logged_in?
+      @cat = Cat.find(params[:id])
+      @approved_requests = @cat.cat_rental_requests.where("status = 'APPROVED'").order('start_date')
+      @pending_requests = @cat.cat_rental_requests.where("status = 'PENDING'").order('start_date')
+      render :show
+    else
+      redirect_to new_session_url
+    end
   end
 
   def new

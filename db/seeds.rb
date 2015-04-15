@@ -27,3 +27,13 @@ end
   start_date = random_date - (i + 1).months
   CatRentalRequest.create!(start_date: start_date, end_date: random_date, cat_id: i + 1)
 end
+
+
+User.create!(:user_name => "warrior1", :password_digest => BCrypt::Password.create('warrior1') )
+User.create!(:user_name => "warrior2", :password_digest => BCrypt::Password.create('warrior2') )
+User.create!(:user_name => "warrior3", :password_digest => BCrypt::Password.create('warrior3') )
+User.create!(:user_name => "warrior4", :password_digest => BCrypt::Password.create('warrior4') )
+User.create!(:user_name => "warrior5", :password_digest => BCrypt::Password.create('warrior5') )
+User.create!(:user_name => "warrior6", :password_digest => BCrypt::Password.create('warrior6') )
+User.create!(:user_name => "warrior7", :password_digest => BCrypt::Password.create('warrior7') )
+User.create!(:user_name => "warrior8", :password_digest => BCrypt::Password.create('warrior8') )
