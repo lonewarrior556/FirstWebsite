@@ -6,7 +6,10 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find(params[:id])
+    @approved_requests = @cat.cat_rental_requests.where("status = 'APPROVED'").order('start_date')
+    @pending_requests = @cat.cat_rental_requests.where("status = 'PENDING'").order('start_date')
     render :show
+
   end
 
   def new
@@ -39,7 +42,7 @@ class CatsController < ApplicationController
     Cat.find(params[:id]).destroy
     redirect_to cats_url
   end
-  
+
   private
 
   def cat_params

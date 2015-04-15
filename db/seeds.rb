@@ -19,5 +19,11 @@ Cat.first.update(description: "this is such a nice cat that no longer has rabies
 10.times do |i|
   random_date = (1.year.ago)
   start_date = random_date - (i + 1).months
+  CatRentalRequest.create!(start_date: start_date, end_date: random_date, cat_id: i + 1, status: 'APPROVED')
+end
+
+10.times do |i|
+  random_date = (0.year.ago)
+  start_date = random_date - (i + 1).months
   CatRentalRequest.create!(start_date: start_date, end_date: random_date, cat_id: i + 1)
 end
