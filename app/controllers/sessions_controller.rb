@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to new_session_url
+    redirect_to cats_url
   end
 
     # verify username/password
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
       login(user)
       redirect_to cats_url
     else
-      redirect_to new_session_url
+      redirect_to login_url
     end
 
 

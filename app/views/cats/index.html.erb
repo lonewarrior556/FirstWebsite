@@ -1,6 +1,12 @@
 
-<h1><%= "hello #{current_user.user_name}" if logged_in? %><h1>
-  
+<%if logged_in? %>
+<h1><%= "hello #{current_user.user_name}"%><h1>
+<form action="<%= session_url%>" method="POST">
+<input type="submit" value="Log Out">
+<input type="hidden" name="_method" value="DELETE">
+</form>
+<%end  %>
+
 <h1>All our Cats!</h1>
   <ul>
     <% @cats.each do |cat| %>

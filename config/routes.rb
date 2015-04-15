@@ -10,7 +10,10 @@ NinetyNineCats::Application.routes.draw do
    patch 'cat_rental_requests/:id/deny', :to => 'cat_rental_requests#deny', as: 'cat_rental_deny'
    patch 'cat_rental_requests/:id/approve', :to => 'cat_rental_requests#approve', as: 'cat_rental_approve'
 
-   resources :session, only: [:new, :create, :destroy]
 
+
+   get 'session', :to => 'sessions#new', as: 'login'
+   post 'session', to: 'sessions#create'
+   delete 'session', :to => 'sessions#destroy'
 
 end

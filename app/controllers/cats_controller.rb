@@ -11,7 +11,7 @@ class CatsController < ApplicationController
       @pending_requests = @cat.cat_rental_requests.where("status = 'PENDING'").order('start_date')
       render :show
     else
-      redirect_to new_session_url
+      redirect_to session_url
     end
   end
 
